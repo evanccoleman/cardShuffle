@@ -1,15 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Created on Sun Dec 18 15:11:32 2022
-
-@author: evan
-"""
-
-# Python program to shuffle a deck of card
 
 # importing modules
-import itertools, random
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
@@ -36,15 +28,15 @@ for index in range(1, 500):
         np.random.shuffle(deckNp)
         arrayNp[i,:] = deckNp
 
-    #  first color is black-er (0.0 would be black), last is "true" red
-    colors = [(0.5, 0, 0), (1, 0, 0)] 
+    #colors = [(0.5, 0, 0), (1, 0, 0)] #red
+    colors = [(0, 0, 0), (0.1, 0.1, 0.1)] #black
     cm = LinearSegmentedColormap.from_list("Custom", colors, N=50)
     mat = np.indices((52,52))[1]
     plt.imshow(arrayNp, cmap=cm)
     #plt.xticks([])
     #plt.yticks([])
     plt.axis("off")
-    filename = "images/test" + str(index) + ".png"
+    filename = "images/black" + str(index) + ".png"
     plt.savefig(filename, format="png", bbox_inches="tight", pad_inches=0, transparent=True)
     plt.close()
     #plt.show()
